@@ -18,6 +18,7 @@ import {
 import {Platform, StatusBar, StyleSheet, View } from 'react-native';
 
 import FriendsList from './src/lists/FriendsList'
+import RecievablesForm from './src/forms/RecievablesForm';
 import { friendsList } from './src/mockData';
 
 const styles = StyleSheet.create({
@@ -48,13 +49,18 @@ export default class App extends React.Component {
     });
 
     this.setState({
-      loading: false
+      loading: false,
+      addingPayables: false
     })
   }
 
   render() {
     if (this.state.loading) {
       return <Expo.AppLoading />;
+    }
+
+    if(this.state.addingPayables){
+      return <RecievablesForm />
     }
 
     return (
@@ -81,7 +87,9 @@ export default class App extends React.Component {
             active={'true'}
             style={{ backgroundColor: '#5067FF' }}
             position="bottomRight"
-            onPress={() => {}}>
+            onPress={() => this.setState({
+              addingPayables: true
+            })}>
             <Icon name="md-add" />
           </Fab>
         </Container>
