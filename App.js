@@ -15,7 +15,10 @@ import {
   Tabs
 } from 'native-base';
 
-import {Platform, StatusBar, StyleSheet, View } from 'react-native'
+import {Platform, StatusBar, StyleSheet, View } from 'react-native';
+
+import FriendsList from './src/lists/FriendsList'
+import { friendsList } from './src/mockData';
 
 const styles = StyleSheet.create({
   container: {
@@ -66,8 +69,9 @@ export default class App extends React.Component {
           <Content>
             <Tabs>
               <Tab heading="Recievables">
-                <View style={{ flex: 1 }}>
-                </View>
+                <FriendsList
+                  friendsList={friendsList}
+                />
               </Tab>
               <Tab heading="Payables">
               </Tab>
