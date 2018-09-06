@@ -2,6 +2,8 @@ import React from 'react';
 import {
   Container,
 } from 'native-base';
+import { Provider } from 'react-redux'
+import { store } from './src/store/index'
 
 import {Platform, StatusBar, StyleSheet, View } from 'react-native';
 
@@ -45,9 +47,11 @@ export default class App extends React.Component {
     }
 
     return (
-      <View style={styles.container}>
-        <DashBoard />
-      </View>
+      <Provider store={store}>
+        <View style={styles.container}>
+          <DashBoard />
+        </View>
+      </Provider>
     );
   }
 }

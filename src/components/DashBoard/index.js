@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import {
   Container,
   Header,
@@ -20,13 +21,16 @@ import {Platform, StatusBar, StyleSheet, View } from 'react-native';
 import FriendsList from './FriendsList'
 import { friendsList } from '../../mockData';
 
-export default class DashBoard extends React.Component {
+class DashBoard extends React.Component {
 
   constructor(props){
     super(props);
   }
 
   render() {
+
+    const { isLoading } = this.props.dashboard;
+
     return (
       <View style={{flex: 1}}>
         <Container>
@@ -61,3 +65,11 @@ export default class DashBoard extends React.Component {
     );
   }
 }
+
+const mapStateToProps = ({
+  dashboard
+}) => ({
+  dashboard
+});
+
+export default connect(mapStateToProps)(DashBoard);
