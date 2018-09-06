@@ -1,25 +1,11 @@
 import React from 'react';
 import {
   Container,
-  Header,
-  Title,
-  Content,
-  Button,
-  Left,
-  Right,
-  Body,
-  Icon,
-  Text,
-  Fab,
-  Tab,
-  Tabs
 } from 'native-base';
 
 import {Platform, StatusBar, StyleSheet, View } from 'react-native';
 
-import FriendsList from './src/lists/FriendsList'
-import RecievablesForm from './src/forms/RecievablesForm';
-import { friendsList } from './src/mockData';
+import DashBoard from './src/components/DashBoard/index';
 
 const styles = StyleSheet.create({
   container: {
@@ -49,8 +35,7 @@ export default class App extends React.Component {
     });
 
     this.setState({
-      loading: false,
-      addingPayables: false
+      loading: false
     })
   }
 
@@ -59,40 +44,9 @@ export default class App extends React.Component {
       return <Expo.AppLoading />;
     }
 
-    if(this.state.addingPayables){
-      return <RecievablesForm />
-    }
-
     return (
       <View style={styles.container}>
-        <Container>
-          <Header>
-            <Body>
-              <Title>Paisa Vasool</Title>
-            </Body>
-            <Right />
-          </Header>
-          <Content>
-            <Tabs>
-              <Tab heading="Recievables">
-                <FriendsList
-                  friendsList={friendsList}
-                />
-              </Tab>
-              <Tab heading="Payables">
-              </Tab>
-            </Tabs>
-          </Content>
-          <Fab
-            active={'true'}
-            style={{ backgroundColor: '#5067FF' }}
-            position="bottomRight"
-            onPress={() => this.setState({
-              addingPayables: true
-            })}>
-            <Icon name="md-add" />
-          </Fab>
-        </Container>
+        <DashBoard />
       </View>
     );
   }
