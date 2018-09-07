@@ -23,6 +23,17 @@ import { friendsList } from '../../mockData';
 
 class DashBoard extends React.Component {
 
+  static navigationOptions = {
+    header: () => (
+      <Header>
+        <Body>
+          <Title>Paisa Vasool</Title>
+        </Body>
+        <Right />
+      </Header>
+    )
+  };
+
   constructor(props){
     super(props);
   }
@@ -34,12 +45,6 @@ class DashBoard extends React.Component {
     return (
       <View style={{flex: 1}}>
         <Container>
-          <Header>
-            <Body>
-              <Title>Paisa Vasool</Title>
-            </Body>
-            <Right />
-          </Header>
           <Content>
             <Tabs>
               <Tab heading="Recievables">

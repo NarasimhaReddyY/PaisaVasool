@@ -4,10 +4,9 @@ import {
 } from 'native-base';
 import { Provider } from 'react-redux'
 import { store } from './src/store/index'
-
 import {Platform, StatusBar, StyleSheet, View } from 'react-native';
 
-import DashBoard from './src/components/DashBoard/index';
+import DashboardNavigator from './src/navigator/dashboard';
 
 const styles = StyleSheet.create({
   container: {
@@ -49,7 +48,7 @@ export default class App extends React.Component {
     return (
       <Provider store={store}>
         <View style={styles.container}>
-          <DashBoard />
+          <DashboardNavigator />
         </View>
       </Provider>
     );
