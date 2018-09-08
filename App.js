@@ -4,20 +4,9 @@ import {
 } from 'native-base';
 import { Provider } from 'react-redux'
 import { store } from './src/store/index'
-import {Platform, StatusBar, StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 
 import DashboardNavigator from './src/navigator/dashboard';
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    ...Platform.select({
-        android: {
-            marginTop: StatusBar.currentHeight
-        }
-    })
-  }
-})
 
 export default class App extends React.Component {
 
@@ -47,7 +36,7 @@ export default class App extends React.Component {
 
     return (
       <Provider store={store}>
-        <View style={styles.container}>
+        <View style={{flex: 1}}>
           <DashboardNavigator />
         </View>
       </Provider>
