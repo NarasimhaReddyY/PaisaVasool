@@ -1,6 +1,5 @@
 import React from 'react';
 import { createStackNavigator } from 'react-navigation';
-import DashBoard from '../components/DashBoard/index';
 import RecievablesForm from '../components/Recievables/RecievablesForm';
 import DashboardTabsNavigator from './dashboardTabs';
 
