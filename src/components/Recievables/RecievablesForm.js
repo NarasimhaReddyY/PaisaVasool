@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, TextInput, Text} from 'react-native';
 import { TextInputWithLabel } from '../FormComponents/TextInputWithLabel';
 import { DatePickerWithLabel } from '../FormComponents/DatePickerWithLabel';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class RecievablesForm extends Component {
   render() {
@@ -12,19 +13,19 @@ export default class RecievablesForm extends Component {
         padding: 10
       }}>
         <TextInputWithLabel
-          label={<Text>{'Name'}</Text>}
+          label={<Icon name="user" size={30} />}
           placeholder='Enter Name'
         />
         <TextInputWithLabel
-          label={<Text>{'Phone'}</Text>}
+          label={<Icon name="phone" size={30} />}
           placeholder='Enter Phone Number'
         />
         <TextInputWithLabel
-          label={<Text>{'Amount'}</Text>}
+          label={<Icon name="rupee" size={30} />}
           placeholder='Enter Amount'
         />
         <DatePickerWithLabel
-          label={<Text>{'Expected Date'}</Text>}
+          label={<Icon name="calendar-plus-o" size={30} />}
         />
       </View>
     );
