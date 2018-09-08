@@ -13,7 +13,7 @@ import {
   View
 } from 'native-base';
 
-export default class RecievablesForm extends Component {
+export class RecievablesForm extends Component {
   render() {
     return (
       <Container>

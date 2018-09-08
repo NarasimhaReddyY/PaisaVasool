@@ -1,4 +1,4 @@
-export const friendsList = [{
+export const recievablesList = [{
   name: 'Narasimha',
   avatar: 'https://narasimha-geek.github.io/narasimha.jpg',
   amount: '2000'
@@ -32,4 +32,15 @@ export const friendsList = [{
   name: 'Seeta',
   avatar: 'https://narasimha-geek.github.io/narasimha.jpg',
   amount: '2000'
+}]
+
+export const payablesList = [{
+  name: 'Narasimha',
+  avatar: 'https://narasimha-geek.github.io/narasimha.jpg',
+  amount: '2000'
+},
+{
+  name: 'Sandeep',
+  avatar: 'https://narasimha-geek.github.io/narasimha.jpg',
+  amount: '5000'
 }]

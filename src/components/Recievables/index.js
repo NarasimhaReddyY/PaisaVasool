@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import {
   Container,
   Header,
@@ -10,21 +12,24 @@ import {
   Left,
   Body,
   Right,
-  Button
+  Button,
+  View
 } from 'native-base';
 
 const rupeeSymbol = '\u20B9';
 
-export default class FriendsList extends Component {
+class RecievablesHome extends Component {
+
   render() {
-    const { friendsList } = this.props;
+
+    const { recievablesList } = this.props.recievables;
 
     return (
       <Container>
         <Content>
           <List>
             {
-              friendsList.map(({name, avatar, amount}, index) => (
+              recievablesList.map(({name, avatar, amount}, index) => (
                 <ListItem thumbnail key={index}>
                   <Left>
                     <Thumbnail circle source={{ uri: avatar }} />
@@ -44,3 +49,11 @@ export default class FriendsList extends Component {
     );
   }
 }
+
+const mapStateToProps = ({
+  recievables
+}) => ({
+  recievables
+});
+
+export default connect(mapStateToProps)(RecievablesHome);

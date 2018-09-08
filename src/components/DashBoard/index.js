@@ -18,8 +18,7 @@ import {
 
 import {Platform, StatusBar, StyleSheet, View } from 'react-native';
 
-import FriendsList from './FriendsList'
-import { friendsList } from '../../mockData';
+import DashboardTabsNavigator from '../../navigator/dashboardTabs';
 
 class DashBoard extends React.Component {
 
@@ -45,17 +44,7 @@ class DashBoard extends React.Component {
     return (
       <View style={{flex: 1}}>
         <Container>
-          <Content>
-            <Tabs>
-              <Tab heading="Recievables">
-                <FriendsList
-                  friendsList={friendsList}
-                />
-              </Tab>
-              <Tab heading="Payables">
-              </Tab>
-            </Tabs>
-          </Content>
+          <DashboardTabsNavigator />
           <Fab
             active={'true'}
             style={{ backgroundColor: '#5067FF' }}

@@ -1,10 +1,11 @@
 import React from 'react';
-import { createTabNavigator } from 'react-navigation';
-import FriendsList from '../components/DashBoard/FriendsList';
+import { createMaterialTopTabNavigator } from 'react-navigation';
+import RecievablesHome from '../components/Recievables/index.js'
+import PayablesHome from '../components/Payables/index.js'
 
-const DashboardTabsNavigator = createTabNavigator({
-  Recievables: FriendsList,
-  Payables: FriendsList
+const DashboardTabsNavigator = createMaterialTopTabNavigator({
+  Recievables: RecievablesHome,
+  Payables: PayablesHome
 },
 {
   initialRouteName: 'Recievables'
