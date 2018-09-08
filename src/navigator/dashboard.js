@@ -1,9 +1,22 @@
 import React from 'react';
-import { StackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 import DashBoard from '../components/DashBoard/index';
+import RecievablesForm from '../components/Recievables/RecievablesForm';
+import DashboardTabsNavigator from './dashboardTabs';
 
-const DashboardNavigator = StackNavigator({
-  DashBoard: DashBoard
+const DashboardNavigator = createStackNavigator({
+  DashBoard: {
+    screen:  DashboardTabsNavigator,
+    navigationOptions: () => ({
+      title: `Paisa Vasool`
+    })
+  },
+  RecievablesForm: {
+    screen:  RecievablesForm,
+    navigationOptions: () => ({
+      title: `Add Recievables`
+    })
+  },
 },
 {
   initialRouteName: 'DashBoard'

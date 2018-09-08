@@ -13,12 +13,22 @@ import {
   Body,
   Right,
   Button,
-  View
+  View,
+  Fab,
+  Icon
 } from 'native-base';
 
 const rupeeSymbol = '\u20B9';
 
 class PayablesHome extends Component {
+  constructor(props){
+    super(props);
+    this.naviagteToForm = this.naviagteToForm.bind(this);
+  }
+
+  naviagteToForm = () => {
+    this.props.navigation.navigate('RecievablesForm');
+  }
 
   render() {
 
@@ -45,6 +55,13 @@ class PayablesHome extends Component {
             }
           </List>
         </Content>
+          <Fab
+            active={'true'}
+            style={{ backgroundColor: '#5067FF' }}
+            position="bottomRight"
+            onPress={this.naviagteToForm}>
+            <Icon name="md-add" />
+          </Fab>
       </Container>
     );
   }
