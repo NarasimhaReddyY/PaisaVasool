@@ -1,34 +1,60 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { View, TextInput, Text, Button} from 'react-native';
+import { addRecievableActionCreator } from '../actionCreators/index';
+
 import { TextInputWithLabel } from '../FormComponents/TextInputWithLabel';
 import { DatePickerWithLabel } from '../FormComponents/DatePickerWithLabel';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default class RecievablesForm extends Component {
+class RecievablesForm extends Component {
   constructor(props){
     super(props);
 
     this.state = {
-      userName: '',
-      phoneNumber: '',
-      amount: '',
-      expectedDate: new Date()
+      recievable: {
+        userName: '',
+        phoneNumber: '',
+        amount: '',
+        expectedDate: new Date()
+      }
+    }
+  }
+
+
+  componentWillReceiveProps(nextProps){
+
+    const { recievables } = nextProps;
+    const { isFetching, errors } = recievables;
+
+    if(this.props.recievables.isFetching == isFetching
+      && errors.length == 0){
+      this.props.navigation.navigate('DashBoard');
     }
   }
 
   onAttributeChange = (attribute, value) => {
+
+    const { recievable } = this.state;
+
     this.setState({
-      [attribute]: value
+      ...this.state,
+      recievable: {
+        ...recievable,
+        [attribute]: value
+      }
     })
   }
 
   submitForm = () => {
-    // Submit form
+    const { recievable } = this.state;
+    this.props.addRecievable(recievable);
   }
 
   render() {
 
-    const { userName, phoneNumber, amount, expectedDate } = this.state;
+    const { userName, phoneNumber, amount, expectedDate } = this.state.recievable;
 
     return (
       <View style={{
@@ -94,3 +120,14 @@ export default class RecievablesForm extends Component {
     );
   }
 }
+
+const mapStateToProps = ({
+  recievables
+}) => ({
+  recievables
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  addRecievable: bindActionCreators(addRecievableActionCreator, dispatch)
+})
+export default connect(mapStateToProps, mapDispatchToProps)(RecievablesForm);

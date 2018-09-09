@@ -41,13 +41,13 @@ class RecievablesHome extends Component {
         <Content>
           <List>
             {
-              recievablesList.map(({name, avatar, amount}, index) => (
+              recievablesList.map(({userName, avatar, amount}, index) => (
                 <ListItem thumbnail key={index}>
                   <Left>
                     <Thumbnail circle source={{ uri: avatar }} />
                   </Left>
                   <Body>
-                    <Text>{name}</Text>
+                    <Text>{userName}</Text>
                   </Body>
                   <Right>
                     <Text>{amount} {rupeeSymbol}</Text>
