@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, TextInput, Text } from 'react-native';
 
-export const TextInputWithLabel = ({label, placeholder, onChange, ...props}) => (
+export const TextInputWithLabel = ({label, placeholder, value, onChangeText, ...props}) => (
   <View style={{
     flexDirection: 'row',
     paddingBottom: 10
@@ -19,7 +19,8 @@ export const TextInputWithLabel = ({label, placeholder, onChange, ...props}) => 
     }}>
       <TextInput
         placeholder={placeholder}
-        onChange={onChange}
+        onChangeText={onChangeText}
+        value={value}
         {...props}
         style={{
           padding: 12,
